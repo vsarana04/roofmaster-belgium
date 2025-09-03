@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Test - RoofMaster Belgium</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-item {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .status {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .status.pass { background: #d4edda; color: #155724; }
+        .status.fail { background: #f8d7da; color: #721c24; }
+        .status.pending { background: #fff3cd; color: #856404; }
+        .demo-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .demo-link {
+            background: #007bff;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            transition: background 0.3s;
+        }
+        .demo-link:hover {
+            background: #0056b3;
+        }
+        .demo-link.github { background: #24292e; }
+        .demo-link.netlify { background: #00c7b7; }
+        .demo-link.ngrok { background: #ff6b35; }
+    </style>
+</head>
+<body>
+    <h1>🎯 Demo Test - RoofMaster Belgium</h1>
+    
+    <div class="test-item">
+        <h3>📋 Pre-Demo Checklist</h3>
+        <ul>
+            <li><span class="status pending">PENDING</span> Loading screen works</li>
+            <li><span class="status pending">PENDING</span> Language switcher works</li>
+            <li><span class="status pending">PENDING</span> Forms are functional</li>
+            <li><span class="status pending">PENDING</span> Mobile responsive</li>
+            <li><span class="status pending">PENDING</span> All links work</li>
+            <li><span class="status pending">PENDING</span> Images load properly</li>
+        </ul>
+    </div>
+
+    <div class="test-item">
+        <h3>🚀 Quick Demo Options</h3>
+        <div class="demo-links">
+            <a href="index.html" class="demo-link">🏠 Local Demo</a>
+            <a href="#" class="demo-link github" onclick="showGitHubInstructions()">📱 GitHub Pages</a>
+            <a href="#" class="demo-link netlify" onclick="showNetlifyInstructions()">⚡ Netlify Drop</a>
+            <a href="#" class="demo-link ngrok" onclick="showNgrokInstructions()">🌐 ngrok Tunnel</a>
+        </div>
+    </div>
+
+    <div class="test-item">
+        <h3>📱 Mobile Test</h3>
+        <p>Open this page on mobile device or use browser dev tools to test responsive design.</p>
+        <button onclick="testMobile()">Test Mobile View</button>
+    </div>
+
+    <div class="test-item">
+        <h3>🌍 Language Test</h3>
+        <p>Test all three languages: English, Nederlands, Français</p>
+        <button onclick="testLanguages()">Test Language Switcher</button>
+    </div>
+
+    <div class="test-item">
+        <h3>📊 Performance Test</h3>
+        <p>Check loading speed and animations</p>
+        <button onclick="testPerformance()">Run Performance Test</button>
+    </div>
+
+    <div id="instructions" class="test-item" style="display: none;">
+        <h3>📋 Instructions</h3>
+        <div id="instruction-content"></div>
+    </div>
+
+    <script>
+        function showGitHubInstructions() {
+            document.getElementById('instruction-content').innerHTML = `
+                <h4>GitHub Pages Setup:</h4>
+                <ol>
+                    <li>Create repository on GitHub</li>
+                    <li>Upload project files</li>
+                    <li>Enable Pages in Settings</li>
+                    <li>URL: https://username.github.io/repository-name</li>
+                </ol>
+                <p><strong>Time:</strong> 10-15 minutes</p>
+                <p><strong>Duration:</strong> Permanent</p>
+            `;
+            document.getElementById('instructions').style.display = 'block';
+        }
+
+        function showNetlifyInstructions() {
+            document.getElementById('instruction-content').innerHTML = `
+                <h4>Netlify Drop:</h4>
+                <ol>
+                    <li>Go to <a href="https://netlify.com" target="_blank">netlify.com</a></li>
+                    <li>Drag project folder to "Deploy manually"</li>
+                    <li>Get instant URL</li>
+                </ol>
+                <p><strong>Time:</strong> 2-3 minutes</p>
+                <p><strong>Duration:</strong> 100GB traffic/month</p>
+            `;
+            document.getElementById('instructions').style.display = 'block';
+        }
+
+        function showNgrokInstructions() {
+            document.getElementById('instruction-content').innerHTML = `
+                <h4>ngrok Tunnel:</h4>
+                <ol>
+                    <li>Install ngrok: <code>brew install ngrok</code></li>
+                    <li>Run: <code>ngrok http 8000</code></li>
+                    <li>Share the ngrok URL</li>
+                </ol>
+                <p><strong>Time:</strong> 1 minute</p>
+                <p><strong>Duration:</strong> While running</p>
+            `;
+            document.getElementById('instructions').style.display = 'block';
+        }
+
+        function testMobile() {
+            alert('Open browser dev tools (F12) and toggle device toolbar to test mobile view');
+        }
+
+        function testLanguages() {
+            window.open('index.html', '_blank');
+        }
+
+        function testPerformance() {
+            const start = performance.now();
+            fetch('index.html')
+                .then(() => {
+                    const end = performance.now();
+                    alert(`Page load time: ${(end - start).toFixed(2)}ms`);
+                });
+        }
+
+        // Auto-test on load
+        window.addEventListener('load', function() {
+            console.log('Demo test page loaded');
+            console.log('Main site available at: index.html');
+        });
+    </script>
+</body>
+</html>
