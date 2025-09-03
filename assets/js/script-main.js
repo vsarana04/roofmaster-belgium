@@ -295,14 +295,17 @@ function createLoadingScreen() {
         `;
     }
     
-    loadingContent += `
-        <div class="loading-dots">
-            <div class="loading-dot"></div>
-            <div class="loading-dot"></div>
-            <div class="loading-dot"></div>
-        </div>
-    </div>
-    `;
+    if (CONFIG.loading.showDots) {
+        loadingContent += `
+            <div class="loading-dots">
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+            </div>
+        `;
+    }
+    
+    loadingContent += `</div>`;
     
     const loadingScreen = DOM.create('div', 'loading-screen', loadingContent);
     document.body.appendChild(loadingScreen);

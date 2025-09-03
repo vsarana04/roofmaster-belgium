@@ -63,10 +63,11 @@ const CONFIG = {
     // Loading Screen Settings
     loading: {
         enabled: true,        // Set to false to disable loading screen
-        duration: 3000,       // Duration in milliseconds
-        fadeOut: 800,         // Fade out duration in milliseconds
-        showProgress: true,   // Show progress bar
-        showLogo: true        // Show RoofMaster logo
+        duration: 2500,       // Duration in milliseconds (reduced)
+        fadeOut: 600,         // Fade out duration in milliseconds
+        showProgress: false,  // Hide progress bar
+        showLogo: true,       // Show RoofMaster logo
+        showDots: false       // Hide loading dots
     },
     
     // Scroll Settings
